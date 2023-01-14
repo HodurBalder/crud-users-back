@@ -7,8 +7,6 @@ const Middlewares = require('./src/middlewares')
 const Database = require('./src/database')
 const Config = require('./src/config')
 const Router = require('./src/router')
-const Cors = require('cors')
-
 
 const App = Express()
 
@@ -23,7 +21,6 @@ App.use(Middlewares.responseType)
 App.use(Router)
 App.use(Middlewares.serverNotFound)
 App.use(Middlewares.serverError)
-App.use(Cors())
 
 Database.then(() => {
     App.listen(Config.port, () => {
